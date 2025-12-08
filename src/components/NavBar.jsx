@@ -54,6 +54,11 @@ export const NavBar = () => {
             Profile
           </Link>
         </li>
+        <li>
+          <Link to="/requests" className="justify-between">
+            Request
+          </Link>
+        </li>
         <li><Link to="/connection" className="justify-between">Connections</Link></li>
         <li><a onClick={handleLogout}>Logout</a></li>
       </ul>
