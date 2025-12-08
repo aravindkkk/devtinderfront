@@ -10,6 +10,7 @@ import { removeUser } from '../utils/userSlice';
 export const NavBar = () => {
   const user = useSelector((store) => store.user);
   const firstName = useSelector((state) => state.user?.firstName);
+  const url = useSelector((state) => state.user?.url);
   const dispatch  = useDispatch();
   const navigate  = useNavigate();
   
@@ -42,7 +43,7 @@ export const NavBar = () => {
         <div className="w-10 rounded-full">
           <img
             alt="Tailwind CSS Navbar component"
-            src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"/>
+            src={url}/>
         </div>
       </div>
       <ul
@@ -53,7 +54,7 @@ export const NavBar = () => {
             Profile
           </Link>
         </li>
-        <li><a>Settings</a></li>
+        <li><Link to="/connection" className="justify-between">Connections</Link></li>
         <li><a onClick={handleLogout}>Logout</a></li>
       </ul>
     </div>

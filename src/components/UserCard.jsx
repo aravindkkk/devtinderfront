@@ -43,6 +43,7 @@ const UserCard = ({ user }) => {
         </div>
   </div>
 </div>
+
   )
 }
 
