@@ -8,10 +8,10 @@ import { addUser } from "../utils/userSlice";
 const EditProfile = ({user}) => {
   const [firstName, setFirstname] = useState(user.firstName);
   const [lastName, setLastName] = useState(user.lastName);
-  const [url, seturl] = useState(user.url);
+  const [url, seturl] = useState(user.url || "");
   const [age, setAge] = useState(user.age || "");
-  const [gender, setGender] = useState(user.gender);
-  const [about, setAbout] = useState(user.about);
+  const [gender, setGender] = useState(user.gender || "");
+  const [about, setAbout] = useState(user.about || "");
   const [skills, setSkills] = useState(user.skills || []);
   const [error, setError] = useState("");
   const [showToast, setShowToast] = useState(false);
@@ -102,40 +102,25 @@ const EditProfile = ({user}) => {
                 </label>
                 <label className="form-control w-full max-w-xs my-2">
                   <div className="label">
-                    <span className="label-text">Gender</span>
-                  </div>
-                  <div className="dropdown">
-                    <div tabIndex={0} role="button" className="btn m-1">
-                      {gender || "Select gender"}
-                    </div>
-                    <ul
-                      tabIndex={0}
-                      className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
-                    >
-                      <li>
-                        <button onClick={() => setGender("Male")}>Male</button>
-                      </li>
-                      <li>
-                        <button onClick={() => setGender("Female")}>
-                          Female
-                        </button>
-                      </li>
-                      <li>
-                        <button onClick={() => setGender("Others")}>
-                          Others
-                        </button>
-                      </li>
-                    </ul>
-                  </div>
-                </label>
-                 <label className="form-control w-full max-w-xs my-2">
-                  <div className="label">
                     <span className="label-text">Skills</span>
                   </div>
                   <input
                     type="text"
                     value={skills}
                     onChange={(e) => setSkills(e.target.value.split(","))}
+                    className="input input-bordered w-full max-w-xs"
+                  />
+                  
+               
+                </label>
+                 <label className="form-control w-full max-w-xs my-2">
+                  <div className="label">
+                    <span className="label-text">Gender</span>
+                  </div>
+                  <input
+                    type="text"
+                    value={gender}
+                    onChange={(e) => setGender(e.target.value)}
                     className="input input-bordered w-full max-w-xs"
                   />
                 </label>
@@ -151,15 +136,13 @@ const EditProfile = ({user}) => {
                     className="input input-bordered w-full max-w-xs"
                   ></textarea>
                 </label>
-               
-
-              
-              </div>
+             
               <p className="text-red-500 text-center"></p>
               <div className="card-actions justify-center mt-2">
                 <button className="btn btn-primary" onClick={saveProfile}>
                   Save Profile
                 </button>
+                 </div>
               </div>
             </div>
           </div>

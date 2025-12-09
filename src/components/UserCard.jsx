@@ -1,7 +1,30 @@
 import React from 'react'
+import axios from "axios";
+import { BASE_URL } from "../utils/constants";
+import { useDispatch } from "react-redux";
+import { removeUserFromFeed } from "../utils/feedSlice";
+
 
 const UserCard = ({ user }) => {
- const { _id, firstName, lastName, age, gender, about, url, skills } = user;
+  const dispatch = useDispatch();
+  console.log(user);
+  const { _id, firstName, lastName, age, gender, about, url, skills } = user;
+
+  const handleSendRequest = async (status, userId) => {
+    try {
+      const res = await axios.post(
+        BASE_URL + "/request/" + status + "/" + userId,
+        {},
+        {
+          withCredentials: true,
+        }
+      );
+      dispatch(removeUserFromFeed(userId));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="card bg-base-100 w-96 shadow-sm">
   <figure>
