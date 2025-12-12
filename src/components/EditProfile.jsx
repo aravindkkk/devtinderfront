@@ -19,9 +19,8 @@ const EditProfile = ({user}) => {
 
   const saveProfile = async () => {
     
-     setError("");
+    setError("");
     try {
-        console.log("hh");
       const res = await axios.patch(
         BASE_URL + "/profile/edit",
         {
@@ -40,7 +39,7 @@ const EditProfile = ({user}) => {
       dispatch(addUser(res.data.data));
       setShowToast(true);
       setTimeout(() => {
-        setShowToast(false);
+      setShowToast(false);
       }, 3000);
     } catch (error) {
        setError(error.response.data);

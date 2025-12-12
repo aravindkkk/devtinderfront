@@ -59,7 +59,14 @@ export const NavBar = () => {
             Request
           </Link>
         </li>
-        <li><Link to="/connection" className="justify-between">Connections</Link></li>
+        <li>
+          <Link to="/connection" className="justify-between">Connections</Link>
+          </li>
+         <li>
+          <Link to="/premium" className="justify-between">
+            Premium
+          </Link>
+        </li>
         <li><a onClick={handleLogout}>Logout</a></li>
       </ul>
     </div>
