@@ -10,6 +10,7 @@ import Requests from './components/Requests';
 import Premium from './components/Premium';
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
+import Chat from './components/Chat';
 
 
 
@@ -27,7 +28,8 @@ function App() {
      <Route path="/profile" element={<Profile />} />
      <Route path="/connection" element={<Connection />} />
      <Route path="/requests" element={<Requests />} />
-      <Route path="/premium" element={<Premium />} />
+     <Route path="/premium" element={<Premium />} />
+      <Route path="/chat/:targetUserId" element={<Chat />} />
     </Route>   
     </Routes>
     </BrowserRouter>
